@@ -1,4 +1,4 @@
-package com.cursoSpringBoot.curso;
+package com.cursoSpringBoot.curso.resources;
 
 import com.cursoSpringBoot.curso.entities.User;
 import com.cursoSpringBoot.curso.services.UserService;

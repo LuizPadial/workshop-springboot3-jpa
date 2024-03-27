@@ -2,15 +2,21 @@ package com.cursoSpringBoot.curso.entities;
 
 import com.cursoSpringBoot.curso.entities.enums.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
+
 @Entity
 @Table(name ="tb_order")
 public class Order implements Serializable {
-    private static final long serialVersionTypeUID = 1L;
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,6 +30,10 @@ public class Order implements Serializable {
 
     public Order(){
     }
+    @OneToMany(mappedBy = "id.order")
+    @JsonManagedReference // Evita loop infinito durante serialização
+    @Fetch(FetchMode.JOIN)
+    private Set<OrderItem> items = new HashSet<>();
 
     public Order(Long id, Instant moment,OrderStatus orderStatus, User client) {
         this.id = id;
@@ -31,6 +41,8 @@ public class Order implements Serializable {
         setOrderStatus(orderStatus);
         this.client = client;
     }
+
+
 
     public Long getId() {
         return id;
@@ -63,6 +75,10 @@ public class Order implements Serializable {
 
     public void setClient(User client) {
         this.client = client;
+    }
+
+    public Set<OrderItem> getItems() {
+        return items;
     }
 
     @Override

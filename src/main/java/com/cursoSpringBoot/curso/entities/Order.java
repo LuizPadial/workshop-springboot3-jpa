@@ -4,8 +4,6 @@ import com.cursoSpringBoot.curso.entities.enums.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 import java.io.Serializable;
 import java.time.Instant;
@@ -31,8 +29,7 @@ public class Order implements Serializable {
     public Order(){
     }
     @OneToMany(mappedBy = "id.order")
-    @JsonManagedReference // Evita loop infinito durante serialização
-    @Fetch(FetchMode.JOIN)
+    @JsonManagedReference
     private Set<OrderItem> items = new HashSet<>();
 
     public Order(Long id, Instant moment,OrderStatus orderStatus, User client) {
@@ -41,9 +38,6 @@ public class Order implements Serializable {
         setOrderStatus(orderStatus);
         this.client = client;
     }
-
-
-
     public Long getId() {
         return id;
     }

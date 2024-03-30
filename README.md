@@ -28,21 +28,11 @@ Essa aplicação foi desenvolvida como parte do curso "Java Completo" do Profess
 - application-test.properties <br>
 - Entity: JPA mapping <br>
 
+### Diagrama de classes do Projeto 
 ![image](https://github.com/LuizPadial/workshop-springboot3-jpa/assets/134821865/d281b6e9-45f2-42b2-b7ef-e8c2717dc778)
 
 ![image](https://github.com/LuizPadial/workshop-springboot3-jpa/assets/134821865/bba96eef-addc-4af2-bc6f-2c3df0702146)
 
-
-
-<dependency>
-  <groupId>org.springframework.boot</groupId>
-  <artifactId>spring-boot-starter-data-jpa</artifactId>
-</dependency>
-<dependency>
-  <groupId>com.h2database</groupId>
-  <artifactId>h2</artifactId>
-  <scope>runtime</scope>
-</dependency>
 
 
 

@@ -31,6 +31,9 @@ public class Order implements Serializable {
     @OneToMany(mappedBy = "id.order")
     @JsonManagedReference
     private Set<OrderItem> items = new HashSet<>();
+    //O cascade mapeia para usar o mesmo ID na relação 1 para 1
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private Payment payment;
 
     public Order(Long id, Instant moment,OrderStatus orderStatus, User client) {
         this.id = id;
@@ -73,6 +76,14 @@ public class Order implements Serializable {
 
     public Set<OrderItem> getItems() {
         return items;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 
     @Override

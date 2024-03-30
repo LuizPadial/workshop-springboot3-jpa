@@ -1,1 +1,13 @@
-![image](https://github.com/LuizPadial/workshop-springboot3-jpa/assets/134821865/e220f708-c011-47d5-a662-a2fee2d9f038)
+
+# Projeto web services com Spring Boot e JPA / Hibernate
+
+Objetivos 
+<list>
+ Criar projeto Spring Boot Java<br>
+ Implementar modelo de domínio <br>
+ Estruturar camadas lógicas: resource, service, repository <br>
+ Configurar banco de dados de teste (H2) <br>
+ Povoar o banco de dados <br>
+ CRUD - Create, Retrieve, Update, Delete <br>
+ Tratamento de exceções<br>
+</list>
